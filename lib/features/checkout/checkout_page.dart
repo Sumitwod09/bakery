@@ -98,7 +98,7 @@ class _CheckoutPageState extends ConsumerState<CheckoutPage> {
         child: Column(
           children: [
             Container(
-              color: AppColors.secondary,
+              color: AppColors.secondaryFill(context),
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
               child: const SectionTitle(
@@ -218,7 +218,7 @@ class _OrderForm extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.secondary,
+              color: AppColors.secondaryFill(context),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(

@@ -124,18 +124,21 @@ class _CartRow extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 16),
           padding: EdgeInsets.all(isMobile ? 12 : 16),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceColor(context),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: AppColors.divider, width: 0.5),
+            border:
+                Border.all(color: AppColors.dividerColor(context), width: 0.5),
           ),
-          child: isMobile ? _buildMobileLayout() : _buildDesktopLayout(),
+          child: isMobile
+              ? _buildMobileLayout(context)
+              : _buildDesktopLayout(context),
         ).animate().fadeIn(duration: 200.ms);
       },
     );
   }
 
   /// Mobile: two-row stacked layout
-  Widget _buildMobileLayout() {
+  Widget _buildMobileLayout(BuildContext context) {
     return Column(
       children: [
         // Row 1: Image + Name + Remove
@@ -171,7 +174,7 @@ class _CartRow extends StatelessWidget {
                     item.productName,
                     style: AppTypography.bodyLarge.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textDark,
+                      color: AppColors.textPrimary(context),
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -206,7 +209,7 @@ class _CartRow extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppColors.divider),
+                border: Border.all(color: AppColors.dividerColor(context)),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -255,7 +258,7 @@ class _CartRow extends StatelessWidget {
   }
 
   /// Desktop: horizontal layout
-  Widget _buildDesktopLayout() {
+  Widget _buildDesktopLayout(BuildContext context) {
     return Row(
       children: [
         ClipRRect(

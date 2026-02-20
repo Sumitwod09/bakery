@@ -55,13 +55,13 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.bg(context),
       body: Center(
         child: Container(
           width: 420,
           padding: const EdgeInsets.all(40),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceColor(context),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
@@ -80,7 +80,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 Text(
                   'Anmol Bakery',
                   style: AppTypography.headlineLarge.copyWith(
-                    color: AppColors.accent,
+                    color: AppColors.accentColor(context),
                   ),
                 ),
                 const SizedBox(height: 4),

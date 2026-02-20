@@ -17,18 +17,21 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
     final cartCount = ref.watch(cartItemCountProvider);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
+      value: AppColors.isDark(context)
+          ? SystemUiOverlayStyle.light
+          : SystemUiOverlayStyle.dark,
       child: AppBar(
         toolbarHeight: 60,
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.bg(context),
         elevation: 0,
         scrolledUnderElevation: 1,
-        shadowColor: AppColors.divider,
+        shadowColor: AppColors.dividerColor(context),
         centerTitle: false,
         automaticallyImplyLeading: true,
         leading: context.canPop()
             ? IconButton(
-                icon: const Icon(Icons.arrow_back, color: AppColors.textDark),
+                icon: Icon(Icons.arrow_back,
+                    color: AppColors.textPrimary(context)),
                 onPressed: () => context.pop(),
               )
             : null,
@@ -37,7 +40,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
           child: Text(
             'Anmol Bakery',
             style: AppTypography.headlineLarge.copyWith(
-              color: AppColors.accent,
+              color: AppColors.accentColor(context),
               letterSpacing: 1.2,
             ),
           ),
@@ -49,7 +52,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
               IconButton(
                 onPressed: () => context.push('/cart'),
                 icon: const Icon(Icons.shopping_bag_outlined),
-                color: AppColors.textDark,
+                color: AppColors.textPrimary(context),
                 iconSize: 26,
               ),
               if (cartCount > 0)

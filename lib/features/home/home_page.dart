@@ -104,7 +104,7 @@ class HomePage extends ConsumerWidget {
           // About Preview
           const SizedBox(height: 80),
           Container(
-            color: AppColors.secondary,
+            color: AppColors.secondaryFill(context),
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
             child: ResponsiveContainer(

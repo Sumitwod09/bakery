@@ -129,7 +129,7 @@ class _ProductListTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surfaceColor(context),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -313,7 +313,7 @@ class _ProductFormState extends State<_ProductForm> {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surfaceColor(context),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.divider),
       ),

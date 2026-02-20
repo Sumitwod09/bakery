@@ -40,4 +40,46 @@ class AppColors {
   static const Color textLightDark = Color(0xFFE0E0E0); // Off-white for text
   static const Color textDimDark =
       Color(0xFFAAAAAA); // Dimmed text for dark mode
+
+  // ── Theme-aware helpers ─────────────────────────────────────────────────
+  /// Returns true when the app is in dark mode.
+  static bool isDark(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark;
+
+  /// Scaffold / page background
+  static Color bg(BuildContext context) =>
+      isDark(context) ? backgroundDark : background;
+
+  /// Card / container surface
+  static Color surfaceColor(BuildContext context) =>
+      isDark(context) ? surfaceDark : surface;
+
+  /// Secondary / cream fill — gives subtle tint in light, darker card in dark
+  static Color secondaryFill(BuildContext context) =>
+      isDark(context) ? const Color(0xFF353535) : secondary;
+
+  /// Primary text color
+  static Color textPrimary(BuildContext context) =>
+      isDark(context) ? textLightDark : textDark;
+
+  /// Secondary text color
+  static Color textSecondary(BuildContext context) =>
+      isDark(context) ? textDimDark : textMedium;
+
+  /// Tertiary / muted text
+  static Color textTertiary(BuildContext context) =>
+      isDark(context) ? const Color(0xFF888888) : textLight;
+
+  /// Divider / border
+  static Color dividerColor(BuildContext context) =>
+      isDark(context) ? const Color(0xFF404040) : divider;
+
+  /// Accent text (headings, brand)
+  static Color accentColor(BuildContext context) =>
+      isDark(context) ? primaryLight : accent;
+
+  /// Shadow color
+  static Color shadowColor(BuildContext context) => isDark(context)
+      ? Colors.black.withValues(alpha: 0.3)
+      : Colors.black.withValues(alpha: 0.06);
 }

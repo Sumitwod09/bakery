@@ -39,22 +39,24 @@ class AppShell extends ConsumerWidget {
     final currentIdx = _indexFromLocation(location);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
+      value: AppColors.isDark(context)
+          ? SystemUiOverlayStyle.light
+          : SystemUiOverlayStyle.dark,
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.bg(context),
         // ── Top bar: logo only ──────────────────────────────────────────────
         appBar: AppBar(
-          backgroundColor: AppColors.surface,
+          backgroundColor: AppColors.surfaceColor(context),
           elevation: 0,
           scrolledUnderElevation: 1,
-          shadowColor: AppColors.divider,
+          shadowColor: AppColors.dividerColor(context),
           centerTitle: false,
           title: GestureDetector(
             onTap: () => context.go('/'),
             child: Text(
               'Anmol Bakery',
               style: AppTypography.headlineLarge.copyWith(
-                color: AppColors.accent,
+                color: AppColors.accentColor(context),
                 letterSpacing: 1.2,
               ),
             ),
@@ -66,7 +68,7 @@ class AppShell extends ConsumerWidget {
                 IconButton(
                   onPressed: () => context.go('/cart'),
                   icon: const Icon(Icons.shopping_bag_outlined),
-                  color: AppColors.textDark,
+                  color: AppColors.textPrimary(context),
                   iconSize: 26,
                 ),
                 if (cartCount > 0)
@@ -101,10 +103,10 @@ class AppShell extends ConsumerWidget {
         // ── Bottom navigation bar ───────────────────────────────────────────
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceColor(context),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.06),
+                color: AppColors.shadowColor(context),
                 blurRadius: 16,
                 offset: const Offset(0, -4),
               ),
@@ -140,7 +142,7 @@ class AppShell extends ConsumerWidget {
                                         isActive ? tab.activeIcon : tab.icon,
                                         color: isActive
                                             ? AppColors.primary
-                                            : AppColors.textLight,
+                                            : AppColors.textTertiary(context),
                                         size: 24,
                                       ),
                                       if (cartCount > 0)
@@ -169,7 +171,7 @@ class AppShell extends ConsumerWidget {
                                     isActive ? tab.activeIcon : tab.icon,
                                     color: isActive
                                         ? AppColors.primary
-                                        : AppColors.textLight,
+                                        : AppColors.textTertiary(context),
                                     size: 24,
                                   ),
                             const SizedBox(height: 4),
@@ -182,7 +184,7 @@ class AppShell extends ConsumerWidget {
                                     : FontWeight.w400,
                                 color: isActive
                                     ? AppColors.primary
-                                    : AppColors.textLight,
+                                    : AppColors.textTertiary(context),
                               ),
                             ),
                             // Active indicator dot

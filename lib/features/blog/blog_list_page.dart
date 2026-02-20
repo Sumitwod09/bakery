@@ -108,13 +108,13 @@ class _BlogCardState extends State<_BlogCard> {
           transform: Matrix4.identity()
             ..translate(0.0, _hovered ? -4.0 : 0.0, 0.0),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceColor(context),
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
                 color: _hovered
-                    ? AppColors.primary.withValues(alpha: 0.12)
-                    : Colors.black.withValues(alpha: 0.05),
+                    ? AppColors.shadowColor(context)
+                    : AppColors.shadowColor(context),
                 blurRadius: _hovered ? 20 : 10,
                 offset: const Offset(0, 4),
               ),

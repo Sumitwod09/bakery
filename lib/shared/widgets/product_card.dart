@@ -39,19 +39,19 @@ class _ProductCardState extends State<ProductCard> {
           transform: Matrix4.identity()
             ..translate(0.0, _isHovered ? -6.0 : 0.0),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: AppColors.surfaceColor(context),
             borderRadius: BorderRadius.circular(12),
             boxShadow: _isHovered
                 ? [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(0.15),
+                      color: AppColors.shadowColor(context).withOpacity(0.15),
                       blurRadius: 20,
                       offset: const Offset(0, 8),
                     ),
                   ]
                 : [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.06),
+                      color: AppColors.shadowColor(context).withOpacity(0.06),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),

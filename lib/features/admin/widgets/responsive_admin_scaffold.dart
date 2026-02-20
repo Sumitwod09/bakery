@@ -29,14 +29,14 @@ class ResponsiveAdminScaffold extends StatelessWidget {
     if (isMobile) {
       // ── Mobile/Tablet Layout ──────────────────────────────────────────────
       return Scaffold(
-        backgroundColor: const Color(0xFFF7F7F8),
+        backgroundColor: AppColors.bg(context),
         appBar: AppBar(
           title: Text(title, style: AppTypography.headlineMedium),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.surfaceColor(context),
           elevation: 0,
           leading: Builder(
             builder: (context) => IconButton(
-              icon: const Icon(Icons.menu, color: AppColors.textDark),
+              icon: Icon(Icons.menu, color: AppColors.textPrimary(context)),
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
@@ -50,7 +50,7 @@ class ResponsiveAdminScaffold extends StatelessWidget {
     } else {
       // ── Desktop Layout ────────────────────────────────────────────────────
       return Scaffold(
-        backgroundColor: const Color(0xFFF7F7F8),
+        backgroundColor: AppColors.bg(context),
         body: Row(
           children: [
             // Permanent Sidebar

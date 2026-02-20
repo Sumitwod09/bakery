@@ -131,7 +131,7 @@ class _StatCard extends StatelessWidget {
       width: 200,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surfaceColor(context),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(

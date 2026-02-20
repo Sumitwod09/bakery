@@ -62,7 +62,7 @@ class _ContactPageState extends ConsumerState<ContactPage> {
         child: Column(
           children: [
             Container(
-              color: AppColors.secondary,
+              color: AppColors.secondaryFill(context),
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
               child: const SectionTitle(
@@ -103,7 +103,7 @@ class _ContactPageState extends ConsumerState<ContactPage> {
       return Container(
         padding: const EdgeInsets.all(32),
         decoration: BoxDecoration(
-          color: AppColors.secondary,
+          color: AppColors.secondaryFill(context),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(

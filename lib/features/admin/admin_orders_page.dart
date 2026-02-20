@@ -15,7 +15,7 @@ class AdminOrdersPage extends ConsumerWidget {
     final ordersAsync = ref.watch(allOrdersProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7F8),
+      backgroundColor: AppColors.bg(context),
       body: Row(
         children: [
           const AdminSidebar(currentRoute: '/admin/orders'),
@@ -33,8 +33,7 @@ class AdminOrdersPage extends ConsumerWidget {
                             color: AppColors.primary)),
                     error: (e, _) => Text('Error: $e'),
                     data: (orders) => orders.isEmpty
-                        ? Text('No orders yet.',
-                            style: AppTypography.bodyLarge)
+                        ? Text('No orders yet.', style: AppTypography.bodyLarge)
                         : Column(
                             children: orders
                                 .map((o) => _OrderTile(
@@ -79,7 +78,7 @@ class _OrderTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surfaceColor(context),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -131,8 +130,7 @@ class _OrderTile extends StatelessWidget {
                 child: Text(
                   status.toUpperCase(),
                   style: AppTypography.caption.copyWith(
-                      color: _statusColor(status),
-                      fontWeight: FontWeight.w700),
+                      color: _statusColor(status), fontWeight: FontWeight.w700),
                 ),
               ),
             ],
