@@ -9,7 +9,8 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.textDark,
+      color:
+          AppColors.isDark(context) ? AppColors.footerDark : AppColors.footerBg,
       padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
         children: [
@@ -93,7 +94,9 @@ class _FooterColumn extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTypography.headlineSmall.copyWith(color: Colors.white),
+          style: AppTypography.headlineSmall.copyWith(
+            color: AppColors.secondary,
+          ),
         ),
         const SizedBox(height: 16),
         ...children,

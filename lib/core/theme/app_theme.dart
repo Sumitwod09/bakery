@@ -5,27 +5,35 @@ import '../constants/app_colors.dart';
 class AppTheme {
   AppTheme._();
 
+  // ── Light Theme — "Warm Artisan" ─────────────────────────────────────────
   static ThemeData get lightTheme => ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          primary: AppColors.primary,
-          secondary: AppColors.secondary,
-          surface: AppColors.surface,
-          error: AppColors.error,
+        colorScheme: const ColorScheme(
           brightness: Brightness.light,
+          primary: AppColors.primary, // Chocolate Brown
+          onPrimary: Colors.white,
+          secondary: AppColors.secondary, // Soft Gold
+          onSecondary: AppColors.textDark,
+          surface: AppColors.surface,
+          onSurface: AppColors.textDark,
+          error: AppColors.error,
+          onError: Colors.white,
         ),
         scaffoldBackgroundColor: AppColors.background,
-        textTheme: GoogleFonts.latoTextTheme(),
+        textTheme: GoogleFonts.latoTextTheme().apply(
+          bodyColor: AppColors.textDark,
+          displayColor: AppColors.textDark,
+        ),
         appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.background,
+          backgroundColor: AppColors.surface,
           elevation: 0,
-          scrolledUnderElevation: 0,
+          scrolledUnderElevation: 1,
+          shadowColor: AppColors.divider,
           centerTitle: false,
           titleTextStyle: GoogleFonts.playfairDisplay(
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: AppColors.textDark,
+            color: AppColors.primary,
           ),
           iconTheme: const IconThemeData(color: AppColors.textDark),
         ),
@@ -59,7 +67,7 @@ class AppTheme {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: AppColors.primary, width: 2),
+            borderSide: const BorderSide(color: AppColors.secondary, width: 2),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -69,6 +77,7 @@ class AppTheme {
           fillColor: AppColors.surface,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          hintStyle: const TextStyle(color: AppColors.textLight),
         ),
         cardTheme: CardThemeData(
           color: AppColors.surface,
@@ -83,22 +92,33 @@ class AppTheme {
           thickness: 1,
         ),
         snackBarTheme: SnackBarThemeData(
-          backgroundColor: AppColors.textDark,
+          backgroundColor: AppColors.primary,
           contentTextStyle: GoogleFonts.lato(color: Colors.white, fontSize: 14),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           behavior: SnackBarBehavior.floating,
         ),
+        chipTheme: ChipThemeData(
+          backgroundColor: AppColors.softSection,
+          selectedColor: AppColors.primary,
+          labelStyle: GoogleFonts.lato(color: AppColors.textDark),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        ),
       );
 
+  // ── Dark Theme — "Luxury Cocoa" ──────────────────────────────────────────
   static ThemeData get darkTheme => ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          primary: AppColors.primary,
-          secondary: AppColors.primaryLight, // Lighter secondary for dark mode
-          surface: AppColors.surfaceDark,
-          error: AppColors.error,
+        colorScheme: const ColorScheme(
           brightness: Brightness.dark,
+          primary: AppColors.primaryDarkMode, // Warm Gold
+          onPrimary: AppColors.backgroundDark,
+          secondary: AppColors.secondaryDarkMode,
+          onSecondary: AppColors.backgroundDark,
+          surface: AppColors.surfaceDark,
+          onSurface: AppColors.textLightDark,
+          error: AppColors.errorDark,
+          onError: Colors.white,
         ),
         scaffoldBackgroundColor: AppColors.backgroundDark,
         textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme).apply(
@@ -106,21 +126,22 @@ class AppTheme {
           displayColor: AppColors.textLightDark,
         ),
         appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.backgroundDark,
+          backgroundColor: AppColors.surfaceDark,
           elevation: 0,
-          scrolledUnderElevation: 0,
+          scrolledUnderElevation: 1,
+          shadowColor: AppColors.dividerDark,
           centerTitle: false,
           titleTextStyle: GoogleFonts.playfairDisplay(
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: AppColors.textLightDark,
+            color: AppColors.primaryDarkMode,
           ),
           iconTheme: const IconThemeData(color: AppColors.textLightDark),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            foregroundColor: Colors.white, // Keep white text on primary button
+            backgroundColor: AppColors.primaryDarkMode, // Warm gold button
+            foregroundColor: AppColors.backgroundDark, // Dark text on gold
             elevation: 0,
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
             shape:
@@ -129,8 +150,9 @@ class AppTheme {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-            foregroundColor: AppColors.primary,
-            side: const BorderSide(color: AppColors.primary, width: 1.5),
+            foregroundColor: AppColors.primaryDarkMode,
+            side:
+                const BorderSide(color: AppColors.primaryDarkMode, width: 1.5),
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
@@ -139,45 +161,53 @@ class AppTheme {
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.white24),
+            borderSide: const BorderSide(color: AppColors.dividerDark),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.white24),
+            borderSide: const BorderSide(color: AppColors.dividerDark),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: AppColors.primary, width: 2),
+            borderSide:
+                const BorderSide(color: AppColors.primaryDarkMode, width: 2),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: AppColors.error),
+            borderSide: const BorderSide(color: AppColors.errorDark),
           ),
           filled: true,
-          fillColor: AppColors.surfaceDark,
+          fillColor: AppColors.elevatedCardDark,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          hintStyle: const TextStyle(color: Colors.white38),
+          hintStyle: const TextStyle(color: AppColors.textMutedDark),
         ),
         cardTheme: CardThemeData(
           color: AppColors.surfaceDark,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(color: Colors.white24, width: 0.5),
+            side: const BorderSide(color: AppColors.dividerDark, width: 0.5),
           ),
         ),
         dividerTheme: const DividerThemeData(
-          color: Colors.white24,
+          color: AppColors.dividerDark,
           thickness: 1,
         ),
         snackBarTheme: SnackBarThemeData(
-          backgroundColor: AppColors.surfaceDark,
+          backgroundColor: AppColors.elevatedCardDark,
           contentTextStyle:
               GoogleFonts.lato(color: AppColors.textLightDark, fontSize: 14),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           behavior: SnackBarBehavior.floating,
         ),
         iconTheme: const IconThemeData(color: AppColors.textLightDark),
+        chipTheme: ChipThemeData(
+          backgroundColor: AppColors.elevatedCardDark,
+          selectedColor: AppColors.primaryDarkMode,
+          labelStyle: GoogleFonts.lato(color: AppColors.textLightDark),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        ),
       );
 }

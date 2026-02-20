@@ -1,48 +1,100 @@
 import 'package:flutter/material.dart';
 
+/// Anmol Bakery — Premium Design System
+/// Light Mode: "Warm Artisan" | Dark Mode: "Luxury Cocoa"
 class AppColors {
   AppColors._();
 
-  // Brand Palette
-  static const Color primary = Color(0xFFC8956C); // Warm terracotta / caramel
-  static const Color primaryLight = Color(0xFFE8C4A8); // Light caramel
-  static const Color primaryDark = Color(0xFF9E6B44); // Deep caramel
-  static const Color secondary = Color(0xFFF5E6D3); // Cream / parchment
-  static const Color accent = Color(0xFF8B4513); // Dark chocolate brown
-  static const Color background = Color(0xFFFDFAF6); // Off-white
-  static const Color surface = Color(0xFFFFFFFF); // White
-  static const Color textDark = Color(0xFF2C1810); // Dark espresso
-  static const Color textMedium = Color(0xFF6B4226); // Medium brown
-  static const Color textLight = Color(0xFF9E7B5E); // Light brown
-  static const Color divider = Color(0xFFEDD8C4); // Soft divider
+  // ── Light Mode — Warm Artisan ───────────────────────────────────────────
 
-  // Semantic
-  static const Color error = Color(0xFFD32F2F);
-  static const Color success = Color(0xFF388E3C);
-  static const Color warning = Color(0xFFF57C00);
+  // Brand
+  static const Color primary = Color(0xFF4A2C2A); // Chocolate Brown
+  static const Color secondary = Color(0xFFC89B3C); // Soft Gold
+  static const Color accent = Color(0xFFF6C1C7); // Rose Cream
+  static const Color highlight = Color(0xFFF4A261); // Bakery Peach
 
-  // Gradients
+  // Aliases used across legacy widgets
+  static const Color primaryLight =
+      Color(0xFFE6B76E); // Metallic gold (dark mode primary)
+  static const Color primaryDark = Color(0xFF3A1F1E); // Hover brown
+
+  // Background system
+  static const Color background = Color(0xFFF8EFE5); // Main background
+  static const Color surface = Color(0xFFFFFFFF); // Cards
+  static const Color softSection = Color(0xFFF3E6D8); // Soft section bg
+  static const Color footerBg = Color(0xFF2E1A1A); // Footer
+
+  // Text
+  static const Color textDark = Color(0xFF2E1A1A); // Primary text
+  static const Color textMedium = Color(0xFF6D4C41); // Secondary text
+  static const Color textLight = Color(0xFFA1887F); // Muted text
+
+  // UI States
+  static const Color success = Color(0xFF4CAF50);
+  static const Color warning = Color(0xFFF4A261);
+  static const Color error = Color(0xFFD64545);
+  static const Color info = Color(0xFF5C6BC0);
+
+  // Divider / border
+  static const Color divider = Color(0xFFE8D5C4);
+
+  // ── Dark Mode — Luxury Cocoa ────────────────────────────────────────────
+
+  // Brand (dark)
+  static const Color primaryDarkMode = Color(0xFFE6B76E); // Warm gold
+  static const Color secondaryDarkMode = Color(0xFFF4A261);
+  static const Color accentDarkMode = Color(0xFFD98C8C);
+
+  // Backgrounds (dark)
+  static const Color backgroundDark = Color(0xFF1C1412); // Main bg
+  static const Color surfaceDark = Color(0xFF2A1F1C); // Cards
+  static const Color elevatedCardDark = Color(0xFF332623); // Elevated
+  static const Color footerDark = Color(0xFF120D0C);
+
+  // Text (dark)
+  static const Color textLightDark = Color(0xFFF5EDE6); // Primary
+  static const Color textDimDark = Color(0xFFD7C2B8); // Secondary
+  static const Color textMutedDark = Color(0xFFA58E84); // Muted
+
+  // UI States (dark adjusted)
+  static const Color successDark = Color(0xFF66BB6A);
+  static const Color warningDark = Color(0xFFFFB74D);
+  static const Color errorDark = Color(0xFFEF5350);
+  static const Color infoDark = Color(0xFF7986CB);
+
+  // Divider (dark)
+  static const Color dividerDark = Color(0xFF3D2E2A);
+
+  // ── Gradients ───────────────────────────────────────────────────────────
+
+  static const LinearGradient heroGradientLight = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFFF8EFE5), Color(0xFFF3E6D8), Color(0xFFF6C1C7)],
+  );
+
+  static const LinearGradient heroGradientDark = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF1C1412), Color(0xFF2A1F1C), Color(0xFF332623)],
+  );
+
+  /// Metallic gold — use on CTA buttons, dividers, price highlights
+  static const LinearGradient goldGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFFC89B3C), Color(0xFFE6B76E), Color(0xFFB88A2F)],
+  );
+
+  // Legacy alias (hero slider uses this)
   static const LinearGradient heroGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [Color(0xFF2C1810), Color(0xFF8B4513)],
+    colors: [Color(0xFF2E1A1A), Color(0xFF4A2C2A)],
   );
-
-  static const LinearGradient warmGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [Color(0xFFFDFAF6), Color(0xFFF5E6D3)],
-  );
-
-  // Dark Mode Palette
-  static const Color backgroundDark = Color(0xFF1E1E1E); // Dark Grey/Black
-  static const Color surfaceDark = Color(0xFF2C2C2C); // Slightly lighter grey
-  static const Color textLightDark = Color(0xFFE0E0E0); // Off-white for text
-  static const Color textDimDark =
-      Color(0xFFAAAAAA); // Dimmed text for dark mode
 
   // ── Theme-aware helpers ─────────────────────────────────────────────────
-  /// Returns true when the app is in dark mode.
+
   static bool isDark(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark;
 
@@ -54,9 +106,13 @@ class AppColors {
   static Color surfaceColor(BuildContext context) =>
       isDark(context) ? surfaceDark : surface;
 
-  /// Secondary / cream fill — gives subtle tint in light, darker card in dark
+  /// Elevated card (one level above surface in dark mode)
+  static Color elevatedCard(BuildContext context) =>
+      isDark(context) ? elevatedCardDark : surface;
+
+  /// Soft section fill (about, testimonials, etc.)
   static Color secondaryFill(BuildContext context) =>
-      isDark(context) ? const Color(0xFF353535) : secondary;
+      isDark(context) ? elevatedCardDark : softSection;
 
   /// Primary text color
   static Color textPrimary(BuildContext context) =>
@@ -66,20 +122,28 @@ class AppColors {
   static Color textSecondary(BuildContext context) =>
       isDark(context) ? textDimDark : textMedium;
 
-  /// Tertiary / muted text
+  /// Muted / tertiary text
   static Color textTertiary(BuildContext context) =>
-      isDark(context) ? const Color(0xFF888888) : textLight;
+      isDark(context) ? textMutedDark : textLight;
 
   /// Divider / border
   static Color dividerColor(BuildContext context) =>
-      isDark(context) ? const Color(0xFF404040) : divider;
+      isDark(context) ? dividerDark : divider;
 
-  /// Accent text (headings, brand)
+  /// Accent text / brand heading color
   static Color accentColor(BuildContext context) =>
-      isDark(context) ? primaryLight : accent;
+      isDark(context) ? primaryDarkMode : primary;
 
   /// Shadow color
   static Color shadowColor(BuildContext context) => isDark(context)
-      ? Colors.black.withValues(alpha: 0.3)
-      : Colors.black.withValues(alpha: 0.06);
+      ? Colors.black.withValues(alpha: 0.4)
+      : Colors.black.withValues(alpha: 0.07);
+
+  /// Primary interactive color (brand brown in light, warm gold in dark)
+  static Color brandPrimary(BuildContext context) =>
+      isDark(context) ? primaryDarkMode : primary;
+
+  /// Gold accent (secondary brand)
+  static Color goldAccent(BuildContext context) =>
+      isDark(context) ? secondaryDarkMode : secondary;
 }

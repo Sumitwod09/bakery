@@ -21,24 +21,24 @@ class _HeroSliderState extends State<HeroSlider> {
       title: 'Taste the Art\nof Baking',
       subtitle:
           'Handcrafted cakes, pastries, and breads baked with love every morning.',
-      bgColor: Color(0xFF2C1810),
-      accentColor: AppColors.primaryLight,
+      bgColor: Color(0xFF2E1A1A),
+      accentColor: AppColors.secondary,
     ),
     _HeroSlide(
       tag: 'SEASONAL SPECIALS',
       title: 'Indulge in Our\nNew Season Menu',
       subtitle:
           'Discover flavours that celebrate the best of every season, beautifully made.',
-      bgColor: Color(0xFF4A2010),
-      accentColor: AppColors.primaryLight,
+      bgColor: Color(0xFF3A1F1E),
+      accentColor: AppColors.secondary,
     ),
     _HeroSlide(
       tag: 'CUSTOM ORDERS',
       title: 'Your Dream Cake,\nOur Craft',
       subtitle:
           'Custom orders for weddings, birthdays, and celebrations — made just for you.',
-      bgColor: Color(0xFF1A0F08),
-      accentColor: AppColors.primaryLight,
+      bgColor: Color(0xFF1C1412),
+      accentColor: AppColors.secondary,
     ),
   ];
 
@@ -91,58 +91,57 @@ class _HeroSliderState extends State<HeroSlider> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                      slide.tag,
-                      style: AppTypography.caption.copyWith(
-                        color: slide.accentColor,
-                        letterSpacing: 3,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    )
+                  slide.tag,
+                  style: AppTypography.caption.copyWith(
+                    color: slide.accentColor,
+                    letterSpacing: 3,
+                    fontWeight: FontWeight.w700,
+                  ),
+                )
                     .animate(key: ValueKey('tag$_current'))
                     .fadeIn(duration: 400.ms),
                 const SizedBox(height: 16),
                 Text(
-                      slide.title,
-                      style:
-                          (isMobile
-                                  ? AppTypography.displaySmall
-                                  : AppTypography.displayLarge)
-                              .copyWith(color: Colors.white),
-                    )
+                  slide.title,
+                  style: (isMobile
+                          ? AppTypography.displaySmall
+                          : AppTypography.displayLarge)
+                      .copyWith(color: Colors.white),
+                )
                     .animate(key: ValueKey('title$_current'))
                     .fadeIn(delay: 100.ms, duration: 500.ms)
                     .slideY(begin: 0.1),
                 const SizedBox(height: 20),
                 SizedBox(
-                      width: isMobile ? double.infinity : 480,
-                      child: Text(
-                        slide.subtitle,
-                        style: AppTypography.bodyLarge.copyWith(
-                          color: Colors.white70,
-                        ),
-                      ),
-                    )
+                  width: isMobile ? double.infinity : 480,
+                  child: Text(
+                    slide.subtitle,
+                    style: AppTypography.bodyLarge.copyWith(
+                      color: Colors.white70,
+                    ),
+                  ),
+                )
                     .animate(key: ValueKey('sub$_current'))
                     .fadeIn(delay: 200.ms, duration: 500.ms),
                 const SizedBox(height: 36),
                 Row(
-                      children: [
-                        PrimaryButton(
-                          label: 'Shop Now',
-                          onPressed: () => context.go('/shop'),
+                  children: [
+                    PrimaryButton(
+                      label: 'Shop Now',
+                      onPressed: () => context.go('/shop'),
+                    ),
+                    const SizedBox(width: 16),
+                    TextButton(
+                      onPressed: () => context.go('/contact'),
+                      child: Text(
+                        'Custom Orders →',
+                        style: AppTypography.labelLarge.copyWith(
+                          color: Colors.white70,
                         ),
-                        const SizedBox(width: 16),
-                        TextButton(
-                          onPressed: () => context.go('/contact'),
-                          child: Text(
-                            'Custom Orders →',
-                            style: AppTypography.labelLarge.copyWith(
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
+                      ),
+                    ),
+                  ],
+                )
                     .animate(key: ValueKey('btn$_current'))
                     .fadeIn(delay: 300.ms, duration: 400.ms),
               ],

@@ -3,11 +3,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 
-class PrimaryButton extends StatelessWidget {
+/// Premium PrimaryButton with gold gradient option
+class PrimaryButton extends StatefulWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool isLoading;
   final bool isOutlined;
+  final bool isGold; // Uses the metallic gold gradient
   final IconData? icon;
   final double? width;
 
@@ -17,61 +19,120 @@ class PrimaryButton extends StatelessWidget {
     this.onPressed,
     this.isLoading = false,
     this.isOutlined = false,
+    this.isGold = false,
     this.icon,
     this.width,
   });
 
   @override
+  State<PrimaryButton> createState() => _PrimaryButtonState();
+}
+
+class _PrimaryButtonState extends State<PrimaryButton> {
+  bool _hovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    final child = isLoading
-        ? const SizedBox(
+    final isDark = AppColors.isDark(context);
+
+    final child = widget.isLoading
+        ? SizedBox(
             height: 20,
             width: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              color: Colors.white,
+              color: isDark ? AppColors.backgroundDark : Colors.white,
             ),
           )
         : Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (icon != null) ...[
-                Icon(icon, size: 18),
+              if (widget.icon != null) ...[
+                Icon(widget.icon, size: 18),
                 const SizedBox(width: 8),
               ],
-              Text(label.toUpperCase(), style: AppTypography.buttonText),
+              Text(widget.label.toUpperCase(), style: AppTypography.buttonText),
             ],
           );
 
-    if (isOutlined) {
+    if (widget.isOutlined) {
       return SizedBox(
-        width: width,
+        width: widget.width,
         child: OutlinedButton(
-          onPressed: isLoading ? null : onPressed,
+          onPressed: widget.isLoading ? null : widget.onPressed,
           child: child,
         ),
       );
     }
 
-    return SizedBox(
-      width: width,
-      child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
-        style:
-            ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
+    // Gold gradient CTA button
+    if (widget.isGold) {
+      return MouseRegion(
+        onEnter: (_) => setState(() => _hovered = true),
+        onExit: (_) => setState(() => _hovered = false),
+        child: GestureDetector(
+          onTap: widget.isLoading ? null : widget.onPressed,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: widget.width,
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: _hovered
+                    ? [
+                        const Color(0xFFB88A2F),
+                        const Color(0xFFE6B76E),
+                        const Color(0xFFC89B3C),
+                      ]
+                    : [
+                        const Color(0xFFC89B3C),
+                        const Color(0xFFE6B76E),
+                        const Color(0xFFB88A2F),
+                      ],
               ),
-              elevation: 0,
-            ).copyWith(
-              overlayColor: WidgetStateProperty.all(
-                Colors.white.withOpacity(0.1),
-              ),
+              borderRadius: BorderRadius.circular(4),
+              boxShadow: _hovered
+                  ? [
+                      BoxShadow(
+                        color: const Color(0xFFC89B3C).withValues(alpha: 0.4),
+                        blurRadius: 16,
+                        offset: const Offset(0, 4),
+                      )
+                    ]
+                  : [],
             ),
-        child: child,
+            child: DefaultTextStyle(
+              style: AppTypography.buttonText
+                  .copyWith(color: const Color(0xFF2E1A1A)),
+              child: child,
+            ),
+          ),
+        ),
+      ).animate().fadeIn(duration: 200.ms);
+    }
+
+    // Standard primary button
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: SizedBox(
+        width: widget.width,
+        child: ElevatedButton(
+          onPressed: widget.isLoading ? null : widget.onPressed,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: _hovered
+                ? (isDark
+                    ? const Color(0xFFD9A955) // Hover gold dark
+                    : const Color(0xFF3A1F1E)) // Hover brown light
+                : AppColors.brandPrimary(context),
+            foregroundColor: isDark ? AppColors.backgroundDark : Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+            elevation: 0,
+          ),
+          child: child,
+        ),
       ),
     ).animate().fadeIn(duration: 200.ms);
   }
