@@ -1,0 +1,66 @@
+﻿Analyzing bakery_web...                                         
+
+   info - Statements in an if should be enclosed in a block - lib\core\utils\validators.dart:22:7 - curly_braces_in_flow_control_structures
+   info - Use 'const' with the constructor to improve performance - lib\features\admin\widgets\admin_sidebar.dart:48:11 - prefer_const_constructors
+   info - Statements in an if should be enclosed in a block - lib\features\blog\blog_detail_page.dart:46:19 - curly_braces_in_flow_control_structures
+   info - 'translate' is deprecated and shouldn't be used. Use translateByVector3, translateByVector4, or translateByDouble instead - lib\features\blog\blog_list_page.dart:113:15 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\features\cart\cart_page.dart:31:19 - prefer_const_constructors
+   info - Don't use 'BuildContext's across async gaps - lib\features\contact\contact_page.dart:48:9 - use_build_context_synchronously
+   info - Use 'const' with the constructor to improve performance - lib\features\contact\contact_page.dart:163:12 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\features\contact\contact_page.dart:165:17 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\features\contact\contact_page.dart:172:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\contact\contact_page.dart:176:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\contact\contact_page.dart:177:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\contact\contact_page.dart:178:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\home\home_page.dart:68:33 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\home\home_page.dart:165:12 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\home\widgets\hero_slider.dart:67:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\home\widgets\hero_slider.dart:79:42 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\features\home\widgets\testimonials_section.dart:78:11 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\home\widgets\testimonials_section.dart:80:20 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:22:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:24:17 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:24:32 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:98:23 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:100:16 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\shared\widgets\custom_app_bar.dart:102:21 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:103:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:104:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:105:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\custom_app_bar.dart:106:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\footer.dart:33:15 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\shared\widgets\footer.dart:35:27 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\footer.dart:36:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\footer.dart:37:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\footer.dart:38:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\footer.dart:39:19 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\primary_button.dart:71:30 - deprecated_member_use
+   info - 'translate' is deprecated and shouldn't be used. Use translateByVector3, translateByVector4, or translateByDouble instead - lib\shared\widgets\product_card.dart:34:15 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\product_card.dart:41:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\product_card.dart:48:43 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\product_card.dart:132:43 - prefer_const_constructors
+warning - Unused import: '../../core/constants/app_colors.dart' - lib\shared\widgets\responsive_container.dart:2:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\section_title.dart:33:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\shared\widgets\section_title.dart:35:24 - prefer_const_constructors
+
+flutter : 42 issues 
+found. (ran in 2.6s)
+At line:1 char:1
++ flutter analyze 
+2>&1 | Out-File 
+-Encoding utf8 
+analyze_out.txt; 
+Get-C ...
++ 
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (42 issu   
+ es found. (ran i    
+n 2.6s):String)     
+[], RemoteExcept    
+ion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 

@@ -1,0 +1,39 @@
+name: bakery_web
+description: "A premium bakery website — elegant, warm, and indulgent."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  supabase_flutter: ^2.3.4
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  go_router: ^13.2.0
+  cached_network_image: ^3.3.1
+  responsive_framework: ^1.1.1
+  intl: ^0.19.0
+  shimmer: ^3.0.0
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  image_picker: ^1.0.7
+  flutter_svg: ^2.0.9
+  url_launcher: ^6.2.4
+  flutter_dotenv: ^5.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - .env

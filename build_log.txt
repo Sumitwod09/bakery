@@ -1,0 +1,111 @@
+﻿Running Gradle task 'assembleDebug'...                          
+flutter : ../../../..
+/AppData/Local/Pub/Ca
+che/hosted/pub.dev/ca
+rousel_slider-4.2.1/l
+ib/carousel_slider.da
+rt:9:1: Error: 
+'CarouselController' 
+is imported from 
+both 'package:carouse
+l_slider/carousel_con
+troller.dart' and 'pa
+ckage:flutter/src/mat
+erial/carousel.dart'.
+At line:1 char:1
++ flutter build apk 
+--debug 2>&1 | 
+Out-File -Encoding 
+utf8 build_log.tx ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (../../.   
+ ./../App...carou    
+sel.dart'.:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+import 'carousel_cont
+roller.dart';
+^^^^^^^^^^^^^^^^^^
+../../../../AppData/L
+ocal/Pub/Cache/hosted
+/pub.dev/carousel_sli
+der-4.2.1/lib/carouse
+l_slider.dart:48:15: 
+Error: 
+'CarouselController' 
+is imported from 
+both 'package:carouse
+l_slider/carousel_con
+troller.dart' and 'pa
+ckage:flutter/src/mat
+erial/carousel.dart'.
+            : 
+CarouselController() 
+as CarouselController
+Impl,
+              
+^^^^^^^^^^^^^^^^^^
+../../../../AppData/L
+ocal/Pub/Cache/hosted
+/pub.dev/carousel_sli
+der-4.2.1/lib/carouse
+l_slider.dart:62:15: 
+Error: 
+'CarouselController' 
+is imported from 
+both 'package:carouse
+l_slider/carousel_con
+troller.dart' and 'pa
+ckage:flutter/src/mat
+erial/carousel.dart'.
+            : 
+CarouselController() 
+as CarouselController
+Impl,
+              
+^^^^^^^^^^^^^^^^^^
+Target kernel_snapsho
+t_program failed: 
+Exception
+
+
+FAILURE: Build 
+failed with an 
+exception.
+
+* What went wrong:
+Execution failed for 
+task ':app:compileFlu
+tterBuildDebug'.
+> Process 'command 'D
+:\UserData\flutter\fl
+utter\bin\flutter.bat
+'' finished with 
+non-zero exit value 1
+
+* Try:
+> Run with 
+--stacktrace option 
+to get the stack 
+trace.
+> Run with --info or 
+--debug option to 
+get more log output.
+> Run with --scan to 
+get full insights.
+> Get more help at ht
+tps://help.gradle.org
+.
+
+BUILD FAILED in 7s
+Running Gradle task 'assembleDebug'...                              7.7s
+Gradle task 
+assembleDebug failed 
+with exit code 1

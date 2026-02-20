@@ -1,0 +1,7 @@
+# Netlify Configuration for Flutter Web SPA
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
